@@ -1,3 +1,7 @@
+
+
+
+
 .App {
   text-align: center;
 }
@@ -27,6 +31,16 @@
 .App-link {
   color: #61dafb;
 }
+
+.navbar-container{
+  background-color: gold;
+  color: #fff
+}
+
+.hero{
+  background-color: gold;
+}
+
 
 @keyframes App-logo-spin {
   from {
