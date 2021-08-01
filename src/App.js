@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import './App.css'
 
+import Home from './components/Home'
 import AddProduct from './components/AddProduct';
 import Cart from './components/Cart';
 import ProductList from './components/ProductList';
@@ -122,10 +123,12 @@ export default class App extends Component {
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
                 </label>
               </div>
               <div className={`navbar-menu ${this.state.showMenu ? "is-active" : ""
                 }`}>
+                <Link to="/home" className="navbar-item">Home</Link>
                 <Link to="/products" className="navbar-item">
                   Products
                 </Link>
@@ -146,6 +149,7 @@ export default class App extends Component {
             </nav>
             <Switch>
               <Route exact path="/" component={ProductList} />
+              <Route exact path="/home" component={Home} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/add-product" component={AddProduct} />
               <Route exact path="/products" component={ProductList} />

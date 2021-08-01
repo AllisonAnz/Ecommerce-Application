@@ -17,7 +17,7 @@ class AddProduct extends Component {
     }
 
 
-    save = async (e) => {
+    onSubmit = async (e) => {
         e.preventDefault();
         const { name, price, stock, shortDesc, description, img} = this.state;
         if (name && price) {
@@ -45,7 +45,6 @@ class AddProduct extends Component {
         }
     }
         
-    
 
     handleChange = e => this.setState({ [e.target.name]: e.target.value, error: "" });
 
@@ -60,7 +59,7 @@ class AddProduct extends Component {
                 </div>
                 <br />
                 <br />
-                <form onSubmit={this.save}>
+                <form onSubmit={this.onSubmit}>
                     <div className="columns is-mobile is-centered">
                         <div className="column is-one-third">
                             <div className="field">
