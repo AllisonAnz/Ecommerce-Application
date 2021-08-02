@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import withContext from "../withContext";
+import React, { Component } from "react"
+import withContext from "../withContext"
 
 const initState = {
     name: "",
@@ -13,13 +13,13 @@ const initState = {
 class AddProduct extends Component {
     constructor(props) {
         super(props);
-        this.state = initState;
+        this.state = initState
     }
 
 
     onSubmit = async (e) => {
-        e.preventDefault();
-        const { name, price, stock, shortDesc, description, img} = this.state;
+        e.preventDefault()
+        const { name, price, stock, shortDesc, description, img} = this.state
         if (name && price) {
             
         fetch('http://localhost:3001/products', {
@@ -32,11 +32,11 @@ class AddProduct extends Component {
             .then(res => res.json())
             .then(data => 
                 this.props.context.addProduct(data), this.setState(() => this.initState)
-                );
+                )
                 
             this.setState(
                 { flash: { status: 'is-success', msg: 'Product created successfully' } }
-            );
+            )
 
         } else {
             this.setState(
@@ -46,7 +46,7 @@ class AddProduct extends Component {
     }
         
 
-    handleChange = e => this.setState({ [e.target.name]: e.target.value, error: "" });
+    handleChange = e => this.setState({ [e.target.name]: e.target.value, error: "" })
 
     render() {
         const { name, price, stock, shortDesc, description, img } = this.state;

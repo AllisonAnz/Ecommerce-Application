@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 const ProductItem = props => {
-    const { product } = props;
+    const { product } = props
     return (
         <div className=" column is-half">
             <div className="box">
@@ -46,4 +46,4 @@ const ProductItem = props => {
     );
 };
 
-export default ProductItem;
+export default ProductItem

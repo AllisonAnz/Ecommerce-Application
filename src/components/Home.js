@@ -1,7 +1,7 @@
 
-import React from "react";
-import ProductItem from "./ProductItem";
-import withContext from "../withContext";
+import React from "react"
+import ProductItem from "./ProductItem"
+import withContext from "../withContext"
 
 const Home = props => {
     const { featuredProducts } = props.context

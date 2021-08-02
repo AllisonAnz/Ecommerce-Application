@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 //Create a Context Object
-const Context = React.createContext({});
-export default Context;
+const Context = React.createContext({})
+export default Context
 
 //About Context 
 //https://www.sitepoint.com/replace-redux-react-hooks-context-api/

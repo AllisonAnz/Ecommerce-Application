@@ -1,10 +1,10 @@
-import React from "react";
-import withContext from "../withContext";
-import CartItem from "./CartItem";
+import React from "react"
+import withContext from "../withContext"
+import CartItem from "./CartItem"
 
 const Cart = props => {
     const { cart } = props.context;
-    const cartKeys = Object.keys(cart || {});
+    const cartKeys = Object.keys(cart || {})
     return (
         <>
             <div className="hero is-primary">
@@ -52,4 +52,4 @@ const Cart = props => {
     );
 };
 
-export default withContext(Cart);
+export default withContext(Cart)

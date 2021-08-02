@@ -1,24 +1,23 @@
-import React, { Component } from "react";
-import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
+import React, { Component } from "react"
+import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom"
 import './App.css'
 
 import Home from './components/Home'
-import AddProduct from './components/AddProduct';
-import Cart from './components/Cart';
-import ProductList from './components/ProductList';
+import AddProduct from './components/AddProduct'
+import Cart from './components/Cart'
+import ProductList from './components/ProductList'
 
-import Context from "./Context";
+import Context from "./Context"
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       user: null,
       cart: {},
       products: [],
       featuredProducts: []
-    };
-    this.routerRef = React.createRef();
+    }
   }
 
   getData() {
@@ -39,50 +38,50 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getData();
+    this.getData()
   }
 
 
 
   addProduct = (product, callback) => {
-    let products = this.state.products.slice();
-    products.push(product);
-    this.setState({ products }, () => callback && callback());
+    let products = this.state.products.slice()
+    products.push(product)
+    this.setState({ products }, () => callback && callback())
   };
 
   addToCart = cartItem => {
-    let cart = this.state.cart;
+    let cart = this.state.cart
     if (cart[cartItem.id]) {
-      cart[cartItem.id].amount += cartItem.amount;
+      cart[cartItem.id].amount += cartItem.amount
     } else {
-      cart[cartItem.id] = cartItem;
+      cart[cartItem.id] = cartItem
     }
     if (cart[cartItem.id].amount > cart[cartItem.id].product.stock) {
-      cart[cartItem.id].amount = cart[cartItem.id].product.stock;
+      cart[cartItem.id].amount = cart[cartItem.id].product.stock
     }
     localStorage.setItem("cart", JSON.stringify(cart));
-    this.setState({ cart });
+    this.setState({ cart })
   };
 
   removeFromCart = cartItemId => {
-    let cart = this.state.cart;
-    delete cart[cartItemId];
-    localStorage.setItem("cart", JSON.stringify(cart));
-    this.setState({ cart });
+    let cart = this.state.cart
+    delete cart[cartItemId]
+    localStorage.setItem("cart", JSON.stringify(cart))
+    this.setState({ cart })
   };
 
   clearCart = () => {
-    let cart = {};
-    localStorage.removeItem("cart");
-    this.setState({ cart });
+    let cart = {}
+    localStorage.removeItem("cart")
+    this.setState({ cart })
   };
 
   checkout = () => {
-    const cart = this.state.cart;
+    const cart = this.state.cart
 
     const products = this.state.products.map(p => {
       if (cart[p.name]) {
-        p.stock = p.stock - cart[p.name].amount;
+        p.stock = p.stock - cart[p.name].amount
 
         const requestOptions = {
           method: "PUT",
@@ -99,7 +98,7 @@ export default class App extends Component {
      return p;
    });
 
-    this.setState({ products });
+    this.setState({ products })
   };
 
   render() {
@@ -130,7 +129,7 @@ export default class App extends Component {
                   data-target="navbarBasicExample"
                   onClick={e => {
                     e.preventDefault();
-                    this.setState({ showMenu: !this.state.showMenu });
+                    this.setState({ showMenu: !this.state.showMenu })
                   }}
                 >
                   <span aria-hidden="true"></span>
@@ -170,6 +169,6 @@ export default class App extends Component {
           </div>
         </Router>
       </Context.Provider>
-    );
+    )
   }
 }
