@@ -15,7 +15,8 @@ export default class App extends Component {
     this.state = {
       user: null,
       cart: {},
-      products: []
+      products: [],
+      featuredProducts: []
     };
     this.routerRef = React.createRef();
   }
@@ -23,12 +24,24 @@ export default class App extends Component {
   getData() {
     fetch('http://localhost:3001/products')
       .then(res => res.json())
-      .then(data => this.setState({ products: data }))
+      .then(data => this.setState({ products: data }, () => {this.featuredProducts()}))
+  }
+
+  featuredProducts = () => {
+    const products = this.state.products
+    const newArray = []
+    for (let i = 0; i < 4; i++) {
+      newArray.push(products[Math.floor(Math.random() * products.length)])
+    }
+    this.setState({
+      featuredProducts: newArray
+    })
   }
 
   componentDidMount() {
     this.getData();
   }
+
 
 
   addProduct = (product, callback) => {
