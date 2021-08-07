@@ -6,6 +6,7 @@ import Home from './components/Home'
 import AddProduct from './components/AddProduct'
 import Cart from './components/Cart'
 import ProductList from './components/ProductList'
+//import Search from './components/Search'
 
 import Context from "./Context"
 
@@ -16,7 +17,8 @@ export default class App extends Component {
       user: null,
       cart: {},
       products: [],
-      featuredProducts: []
+      featuredProducts: [],
+      searchTerm: ''
     }
   }
 
@@ -40,8 +42,6 @@ export default class App extends Component {
   componentDidMount() {
     this.getData()
   }
-
-
 
   addProduct = (product, callback) => {
     let products = this.state.products.slice()
@@ -101,6 +101,12 @@ export default class App extends Component {
     this.setState({ products })
   };
 
+  handleChange = (e) => {
+    this.setState({
+      searchTerm: e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+    })
+  }
+
   render() {
     return (
       <Context.Provider
@@ -110,7 +116,8 @@ export default class App extends Component {
           addToCart: this.addToCart,
           addProduct: this.addProduct,
           clearCart: this.clearCart,
-          checkout: this.checkout
+          checkout: this.checkout,
+          handleChange: this.handleChange
         }}
       >
         <Router ref={this.routerRef}>
@@ -160,7 +167,7 @@ export default class App extends Component {
               </div>
             </nav>
             <Switch>
-              <Route exact path="/" component={ProductList} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/add-product" component={AddProduct} />

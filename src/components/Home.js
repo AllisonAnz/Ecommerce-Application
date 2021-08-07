@@ -15,6 +15,7 @@ const Home = props => {
             </div>
             <br />
             <div className="container">
+                <h4 className="title">Featured Products</h4>
                 <div className="column columns is-multiline">
                     {featuredProducts && featuredProducts.length ? (
                         featuredProducts.map((product, index) => (
@@ -22,6 +23,7 @@ const Home = props => {
                                 product={product}
                                 key={index}
                                 addToCart={props.context.addToCart}
+                                searchTerm={props.context.searchTerm}
                             />
                         ))
                     ) : (
@@ -37,4 +39,4 @@ const Home = props => {
     );
 };
 
-export default withContext(Home);
+export default withContext(Home)

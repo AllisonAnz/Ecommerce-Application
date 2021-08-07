@@ -14,7 +14,7 @@
   "products": [
     {
       "id": "hdmdu0t80yjkfqselfc",
-      "name": "shoes",
+      "name": "Shoes",
       "stock": 8,
       "price": 399.99,
       "shortDesc": "Short Description Example",
@@ -23,7 +23,7 @@
     },
     {
       "id": "3dc7fiyzlfmkfqseqam",
-      "name": "bags",
+      "name": "Bags",
       "stock": 19,
       "price": 299.99,
       "shortDesc": "Short Description Example",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aoe8wvdxvrkfqsew67",
-      "name": "shirts",
+      "name": "Shirts",
       "stock": 15,
       "price": 149.99,
       "shortDesc": "Short Description Example",
@@ -41,7 +41,7 @@
     },
     {
       "id": "bmfrurdkswtkfqsf15j",
-      "name": "shorts",
+      "name": "Shorts",
       "stock": 4,
       "price": 109.99,
       "shortDesc": "Short Description Example",
@@ -92,6 +92,33 @@
       "description": "Make lemonade!",
       "img": "https://cdn.britannica.com/84/188484-050-F27B0049/lemons-tree.jpg",
       "id": "0CKNjGe"
+    },
+    {
+      "name": "Hat",
+      "price": "5",
+      "stock": "2",
+      "shortDesc": "Fun Hat!",
+      "description": "Cool Hat bro",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBUzliQVzCXp9ToYufggLXD2yq5_w0hgcPBw&usqp=CAU",
+      "id": "OwXM6KE"
+    },
+    {
+      "name": "Blanket",
+      "price": "20",
+      "stock": "5",
+      "shortDesc": "Fuzzy Blanket",
+      "description": "Cozy blanket for those chilly winter nights",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYwLZvUkJbhDlmXoYlSzXo-Uf5ZFnZAYmIkQ&usqp=CAU",
+      "id": "k9yO0Xo"
+    },
+    {
+      "name": "Purse",
+      "price": "2000",
+      "stock": "1",
+      "shortDesc": "designer purse",
+      "description": "That's why its so pricey",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJzgu_LOmJTEQLnNq-R3w2ejtefMFitqyYA&usqp=CAU",
+      "id": "MmRhsBx"
     }
   ]
 }

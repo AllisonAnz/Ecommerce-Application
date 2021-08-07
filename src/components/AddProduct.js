@@ -43,13 +43,15 @@ class AddProduct extends Component {
                 { flash: { status: 'is-danger', msg: 'Please enter name and price' } }
             )
         }
+        this.setState({ name: "", price: "", stock: "", shortDesc: "", description: "", img: "" })
     }
         
 
     handleChange = e => this.setState({ [e.target.name]: e.target.value, error: "" })
-
+    
     render() {
         const { name, price, stock, shortDesc, description, img } = this.state;
+        
         return(
             <>
                 <div className="hero is-primary ">
@@ -67,6 +69,7 @@ class AddProduct extends Component {
                                 <input
                                     className="input"
                                     type="text"
+                                    style={{ textTransform: "capitalize" }}
                                     name="name"
                                     value={name}
                                     onChange={this.handleChange}
@@ -136,7 +139,6 @@ class AddProduct extends Component {
                                 <button
                                     className="button is-primary is-outlined is-pulled-right"
                                     type="submit"
-                                    onClick={this.save}
                                 >
                                     Submit
                                 </button>

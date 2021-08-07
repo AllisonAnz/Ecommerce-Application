@@ -1,5 +1,6 @@
 import React from "react"
 import ProductItem from "./ProductItem"
+import Search from "./Search"
 import withContext from "../withContext"
 
 const ProductList = props => {
@@ -10,6 +11,7 @@ const ProductList = props => {
             <div className="hero is-primary">
                 <div className="hero-body container">
                     <h4 className="title">Our Products</h4>
+                    <Search />
                 </div>
             </div>
             <br />
@@ -21,6 +23,7 @@ const ProductList = props => {
                                 product={product}
                                 key={index}
                                 addToCart={props.context.addToCart}
+                                searchTerm={props.context.searchTerm}
                             />
                         ))
                     ) : (
