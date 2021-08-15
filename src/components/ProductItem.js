@@ -1,8 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 
 const ProductItem = props => {
     const { product } = props
     const searchTerm = props.searchTerm
+    const [qty, setQty] = useState(0)
+
+    function increment(qty) {
+        return qty + 1
+    }
 
     if (searchTerm !== ""){
         if (product.name.includes(searchTerm)){
@@ -29,19 +34,19 @@ const ProductItem = props => {
                         ) : (
                             <small className="has-text-danger">Out Of Stock</small>
                         )}
+                        <br/>
+                         <span>{qty > 0 && qty <= product.stock ? `${qty} in cart` : ''}</span>
                         <div className="is-clearfix">
+                            {product.stock !== 0 ? (
                             <button
-                                className="button is-small is-primary   is-pulled-right"
-                                onClick={() => 
-                                    props.addToCart({
-                                        id: product.name,
-                                        product,
-                                        amount: 1
-                                    })
-                                }
-                            >
-                                Add to Cart
-                            </button>
+                                className="button is-small is-primary   is-pulled-right" 
+                                    onClick={() => {
+                                        props.addToCart({
+                                            id: product.name,
+                                            product,
+                                            amount: 1
+                                        }); setQty(increment)
+                                    }}>Add To Cart</button>): (<div></div>)}
                         </div>
                     </div>
                 </div>
@@ -76,20 +81,18 @@ const ProductItem = props => {
                         ) : (
                             <small className="has-text-danger">Out Of Stock</small>
                         )}
+                        <br/>
+                        <span>{qty > 0 && qty <= product.stock ? `${qty} in cart` : ''}</span>
                         <div className="is-clearfix">
-                            <button
-                                className="button is-small is-primary   is-pulled-right"
-                                onClick={() => 
-                                    props.addToCart({
-                                        id: product.name,
-                                        product,
-                                        amount: 1
-                                    })
-                                }
-                            >
-                                Add to Cart
-                            </button>
-                            
+                            {product.stock !== 0 ? (
+                                <button className="button is-small is-primary   is-pulled-right"
+                                    onClick={() => {
+                                        props.addToCart({
+                                            id: product.name,
+                                            product,
+                                            amount: 1
+                                        }); setQty(increment)
+                                    }}>Add To Cart</button>) : (<div></div>)}
                         </div>
                     </div>
                 </div>

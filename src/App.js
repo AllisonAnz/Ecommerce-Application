@@ -6,7 +6,7 @@ import Home from './components/Home'
 import AddProduct from './components/AddProduct'
 import Cart from './components/Cart'
 import ProductList from './components/ProductList'
-//import Search from './components/Search'
+import AboutUs from './components/AboutUs'
 
 import Context from "./Context"
 
@@ -14,7 +14,6 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: null,
       cart: {},
       products: [],
       featuredProducts: [],
@@ -22,7 +21,10 @@ export default class App extends Component {
     }
   }
 
-  getData() {
+  componentDidMount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || {}
+    this.setState({cart: cart})
+
     fetch('http://localhost:3001/products')
       .then(res => res.json())
       .then(data => this.setState({ products: data }, () => {this.featuredProducts()}))
@@ -37,10 +39,6 @@ export default class App extends Component {
     this.setState({
       featuredProducts: newArray
     })
-  }
-
-  componentDidMount() {
-    this.getData()
   }
 
   addProduct = (product, callback) => {
@@ -128,37 +126,23 @@ export default class App extends Component {
             >
               <div className="navbar-brand hero is-link">
                 <b className="navbar-item is-size-4 ">ecommerce</b>
-                <label
-                  role="button"
-                  className="navbar-burger burger"
-                  aria-label="menu"
-                  aria-expanded="false"
-                  data-target="navbarBasicExample"
-                  onClick={e => {
-                    e.preventDefault();
+                <label role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+                  onClick={e => {e.preventDefault()
                     this.setState({ showMenu: !this.state.showMenu })
                   }}
                 >
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
                 </label>
               </div>
-              <div className={`navbar-menu ${this.state.showMenu ? "is-active" : ""
-                }`}>
+              <div className={`navbar-menu ${this.state.showMenu ? "is-active" : ""}`}>
                 <Link to="/home" className="navbar-item">Home</Link>
-                <Link to="/products" className="navbar-item">
-                  Products
-                </Link>
-                  <Link to="/add-product" className="navbar-item">
-                    Add Product
-                  </Link>
-                <Link to="/cart" className="navbar-item">
-                  Cart
-                  <span
-                    className="tag is-primary"
-                    style={{ marginLeft: "5px" }}
+                <Link to="/products" className="navbar-item">Products</Link>
+                <Link to="/add-product" className="navbar-item">Add Product</Link>
+                <Link to="/cart" className="navbar-item">Cart
+                  <span className="tag is-primary" 
+                  style={{ marginLeft: "5px" }}
                   >
                     {Object.keys(this.state.cart).length}
                   </span>
@@ -172,6 +156,7 @@ export default class App extends Component {
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/add-product" component={AddProduct} />
               <Route exact path="/products" component={ProductList} />
+              <Route exact path="/aboutus" component={AboutUs} />
             </Switch>
           </div>
         </Router>

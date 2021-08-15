@@ -6,7 +6,7 @@ const Cart = props => {
     const { cart } = props.context;
     const cartKeys = Object.keys(cart || {})
     return (
-        <>
+        <> 
             <div className="hero is-primary">
                 <div className="hero-body container">
                     <h4 className="title">My Cart</h4>
@@ -27,16 +27,11 @@ const Cart = props => {
                         <div className="column is-12 is-clearfix">
                             <br />
                             <div className="is-pulled-right">
-                                <button
-                                    onClick={props.context.clearCart}
-                                    className="button is-warning "
-                                >
+                                <button className="button is-warning " onClick={props.context.clearCart}>
                                     Clear cart
-                                </button>{" "}
-                                <button
-                                    className="button is-success"
-                                    onClick={props.context.checkout}
-                                >
+                                </button>
+                                {" "}
+                                <button className="button is-success" onClick={props.context.checkout}>
                                     Checkout
                                 </button>
                             </div>

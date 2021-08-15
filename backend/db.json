@@ -15,7 +15,7 @@
     {
       "id": "hdmdu0t80yjkfqselfc",
       "name": "Shoes",
-      "stock": 8,
+      "stock": 7,
       "price": 399.99,
       "shortDesc": "Short Description Example",
       "description": "Description Example",
@@ -24,7 +24,7 @@
     {
       "id": "3dc7fiyzlfmkfqseqam",
       "name": "Bags",
-      "stock": 19,
+      "stock": 17,
       "price": 299.99,
       "shortDesc": "Short Description Example",
       "description": "Description Example",
@@ -87,7 +87,7 @@
     {
       "name": "Lemons",
       "price": "3",
-      "stock": "2",
+      "stock": 1,
       "shortDesc": "When life gives you lemons",
       "description": "Make lemonade!",
       "img": "https://cdn.britannica.com/84/188484-050-F27B0049/lemons-tree.jpg",
@@ -119,6 +119,15 @@
       "description": "That's why its so pricey",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJzgu_LOmJTEQLnNq-R3w2ejtefMFitqyYA&usqp=CAU",
       "id": "MmRhsBx"
+    },
+    {
+      "name": "Picture Frame",
+      "price": "14",
+      "stock": "2",
+      "shortDesc": "Short Description",
+      "description": "Long Description",
+      "img": "https://cb.scene7.com/is/image/Crate/IconWhiteWallFrameGroupFHS19/$web_pdp_main_carousel_low$/190411135126/ikon-white-wall-frames.jpg",
+      "id": "NjXLFR_"
     }
   ]
 }

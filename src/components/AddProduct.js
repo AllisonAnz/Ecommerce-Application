@@ -1,14 +1,7 @@
 import React, { Component } from "react"
 import withContext from "../withContext"
 
-const initState = {
-    name: "",
-    price: "",
-    stock: "",
-    shortDesc: "",
-    description: "",
-    img: ""
-};
+const initState = {name: "", price: "", stock: "", shortDesc: "", description: "", img: ""}
 
 class AddProduct extends Component {
     constructor(props) {
@@ -16,8 +9,7 @@ class AddProduct extends Component {
         this.state = initState
     }
 
-
-    onSubmit = async (e) => {
+    onSubmit = (e) => {
         e.preventDefault()
         const { name, price, stock, shortDesc, description, img} = this.state
         if (name && price) {
@@ -136,10 +128,7 @@ class AddProduct extends Component {
                                 </div>
                             )}
                             <div className="field is-clearfix">
-                                <button
-                                    className="button is-primary is-outlined is-pulled-right"
-                                    type="submit"
-                                >
+                                <button className="button is-primary is-outlined is-pulled-right" type="submit">
                                     Submit
                                 </button>
                             </div>
@@ -151,4 +140,4 @@ class AddProduct extends Component {
     }
 }
 
-export default withContext(AddProduct);
+export default withContext(AddProduct)

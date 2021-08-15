@@ -5,6 +5,7 @@ const CartItem = props => {
 
     const { product, amount } = cartItem
     return (
+        <> 
         <div className=" column is-half">
             <div className="box">
                 <div className="media">
@@ -33,6 +34,7 @@ const CartItem = props => {
                 </div>
             </div>
         </div>
+    </>
     );
 };
 
