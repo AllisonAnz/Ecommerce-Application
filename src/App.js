@@ -41,10 +41,10 @@ export default class App extends Component {
     })
   }
 
-  addProduct = (product, callback) => {
+  addProduct = (product) => {
     let products = this.state.products.slice()
     products.push(product)
-    this.setState({ products }, () => callback && callback())
+    this.setState({ products })
   };
 
   addToCart = cartItem => {
@@ -120,10 +120,7 @@ export default class App extends Component {
       >
         <Router ref={this.routerRef}>
           <div className="App">
-            <nav
-              className="navbar-container"
-              role="navigation"
-            >
+            <nav className="navbar-container" role="navigation">
               <div className="navbar-brand hero is-link">
                 <b className="navbar-item is-size-4 ">ecommerce</b>
                 <label role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
@@ -141,13 +138,10 @@ export default class App extends Component {
                 <Link to="/products" className="navbar-item">Products</Link>
                 <Link to="/add-product" className="navbar-item">Add Product</Link>
                 <Link to="/cart" className="navbar-item">Cart
-                  <span className="tag is-primary" 
-                  style={{ marginLeft: "5px" }}
-                  >
+                  <span className="tag is-primary" style={{ marginLeft: "5px" }}>
                     {Object.keys(this.state.cart).length}
                   </span>
                 </Link>
-                
               </div>
             </nav>
             <Switch>

@@ -23,7 +23,7 @@ class AddProduct extends Component {
         })
             .then(res => res.json())
             .then(data => 
-                this.props.context.addProduct(data), this.setState(() => this.initState)
+                this.props.context.addProduct(data)
                 )
                 
             this.setState(

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Quantity from "./Quantity"
 
 const ProductItem = props => {
     const { product } = props
@@ -29,11 +30,7 @@ const ProductItem = props => {
                             <span className="tag is-info">${product.price}</span>
                         </b>
                         <div>{product.shortDesc}</div>
-                        {product.stock > 0 ? (
-                            <small>{product.stock + " Available"}</small>
-                        ) : (
-                            <small className="has-text-danger">Out Of Stock</small>
-                        )}
+                       <div><Quantity qty={product.stock} /></div>
                         <br/>
                          <span>{qty > 0 && qty <= product.stock ? `${qty} in cart` : ''}</span>
                         <div className="is-clearfix">
@@ -76,11 +73,7 @@ const ProductItem = props => {
                             <span className="tag is-info">${product.price}</span>
                         </b>
                         <div>{product.shortDesc}</div>
-                        {product.stock > 0 ? (
-                            <small>{product.stock + " Available"}</small>
-                        ) : (
-                            <small className="has-text-danger">Out Of Stock</small>
-                        )}
+                        <div><Quantity qty={product.stock} /></div>
                         <br/>
                         <span>{qty > 0 && qty <= product.stock ? `${qty} in cart` : ''}</span>
                         <div className="is-clearfix">
